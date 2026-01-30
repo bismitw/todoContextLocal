@@ -35,18 +35,18 @@
             <button
             className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify center items-center bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50'
             onClick={() => {
-                if(!todo.completed) return
+                if(todo.completed) return
                 if(isTodoEditable) {
                     editTodo()
                 } else setIsTodoEditable((prev) => !prev)
             }}
-            disabled={!todo.completed}
+            disabled={todo.completed}
             >
-                {isTodoEditable ? "📁":"✏️"} </button>
+                {isTodoEditable? "📁":"✏️"} </button>
                 <button
                 className='inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0'
                 onClick={() => deleteTodo(todo.id)}
-                ></button>
+                >❌</button>
             </div>
     )
     }
